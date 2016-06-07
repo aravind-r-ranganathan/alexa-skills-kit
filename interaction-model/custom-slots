@@ -1,0 +1,7 @@
+AccountType
+    checking
+    savings
+
+TransactionType
+    withdrawals
+    debit card purchases

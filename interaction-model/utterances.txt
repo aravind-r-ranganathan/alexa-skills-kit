@@ -1,0 +1,2 @@
+OneshotTrendIntent what is my trend
+OneshotTrendIntent send me my trend

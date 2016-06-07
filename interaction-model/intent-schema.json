@@ -1,0 +1,87 @@
+
+{
+  "intents": [
+    {
+      "intent": "OneshotTrendIntent",
+      "slots":[
+        {
+          "name": "LastFour",
+          "type": "AMAZON.FOUR_DIGIT_NUMBER"
+        },
+        {
+          "name": "AcctType",
+          "type": "AccountType"
+        },
+        {
+          "name": "ProductType",
+          "type": "ProductType"
+        },
+        {
+          "name": "StartDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "EndDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name" : "TimePeriod",
+          "type": "LIST_OF_TIMEPERIODS"
+        }
+      ]
+    },
+    {
+      "intent": "DialogTrendIntent",
+      "slots": [
+        {
+          "name": "LastFour",
+          "type": "AMAZON.FOUR_DIGIT_NUMBER"
+        },
+        {
+          "name": "AcctType",
+          "type": "AccountType"
+        },
+        {
+          "name": "ProductType",
+          "type": "ProductType"
+        },
+        {
+          "name": "StartDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "EndDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name" : "TimePeriod",
+          "type": "LIST_OF_TIMEPERIODS"
+        }
+      ]
+    },
+    {
+      "intent": "DontKnowIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
