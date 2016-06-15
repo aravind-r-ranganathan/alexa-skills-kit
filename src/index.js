@@ -6,6 +6,8 @@ var APP_ID = 'amzn1.echo-sdk-ams.app.2be9da98-88ef-4f20-9699-1ab43665e5be';
 
 var http = require('http'),
     alexaDateUtil = require('./alexaDateUtil');
+var depositUtil = require('./depositUtil');
+var accountSummaryUtil = require('./accountSummaryUtil');
 
 
 /**
@@ -50,37 +52,32 @@ TrendReporter.prototype.eventHandlers.onSessionEnded = function (sessionEndedReq
  * override intentHandlers to map intent handling functions.
  */
 TrendReporter.prototype.intentHandlers = {
-    "OneshotTrendIntent": function (intent, session, response) {
-        handleOneshotTrendRequest(intent, session, response);
+    "DebitCardPurchaseIntent": function (intent, session, response) {
+        handleDebitCardPurchaseIntent(intent, session, response);
     },
 
-    "DialogTrendIntent": function (intent, session, response) {
+    "TransactionsIntent": function (intent, session, response) {
     },
 
-    "OneshotTransactionsIntent": function (intent, session, response) {
+    "DepositsIntent": function (intent, session, response) {
+        depositUtil.handleDepositsIntent(intent, session, response);
     },
 
-    "DialogTransactionsIntent": function (intent, session, response) {
+    "OrderCheckbookIntent": function (intent, session, response) {
     },
 
-    "OneshotRDCIntent": function (intent, session, response) {
+    "BankATMLocationsIntent": function (intent, session, response) {
     },
 
-    "DialogRDCIntent": function (intent, session, response) {
+    "ReferralStatusIntent": function (intent, session, response) {
     },
 
-    "OneshotOrderCheckbookIntent": function (intent, session, response) {
-    },
-
-    "DialogOrderCheckbookIntent": function (intent, session, response) {
-    },
-
-    "SmsAccountSummaryIntent": function (intent, session, response) {
-        handleSmsAccountSummaryIntent(intent, session, response);
+    "TextAccountSummaryIntent": function (intent, session, response) {
+        handleTextAccountSummaryIntent(intent, session, response);
     },
 
     "TellAccountSummaryIntent": function (intent, session, response) {
-        handleTellAccountSummaryIntent(intent, session, response);
+        accountSummaryUtil.handleAccountSummaryIntent(intent, session, response);
     },
 
     "SupportedFunctionsIntent": function (intent, session, response) {
@@ -113,7 +110,8 @@ function handleWelcomeRequest(response) {
         },
         repromptOutput = {
             //TODO add welcome reprompt
-            speech: "I can give you the trend or sumamry of your bank accounts,"
+            speech: "I can give you information about your debit card purchases" +
+            " or summary of your bank accounts,"
             + "list down your various transactions - withdrawals, deposits etc., "
             + "or you can simply open Capital One and ask a question like, "
             + "what is the status of my deposits. "
@@ -126,8 +124,9 @@ function handleWelcomeRequest(response) {
 }
 
 function handleHelpRequest(response) {
-    var repromptText = "How can I help you with your bank account??";
-    var speechOutput = "I can give you the trend or sumamry of your bank accounts,"
+    var repromptText = "How can I help you with your bank account?";
+    var speechOutput = "I can give you information about your debit card purchases" +
+        " or summary of your bank accounts,"
         + "list down your various transactions - withdrawals, deposits etc., "
         + "or you can simply open Capital One and ask a question like, "
         + "what is the status of my deposits. "
@@ -143,7 +142,7 @@ function handleHelpRequest(response) {
  * 'Alexa, open Capital One and ask the trend of my account'.
  * If there is an error in a slot, this will guide the user to the dialog approach.
  */
-function handleOneshotTrendRequest(intent, session, response) {
+function handleDebitCardPurchaseIntent(intent, session, response) {
     var speechOutput = "You spent a total of $473.45 this month, highest on " +
         "dining where you spent $131.67. Last month you spent $125.21 on dining.";
     response.tell(speechOutput);
@@ -153,25 +152,11 @@ function handleOneshotTrendRequest(intent, session, response) {
 
 
 /**
- * This handles the account summary interaction, where the user utters a phrase like:
- * 'Alexa, ask  Capital One for my checking account summary'.
- * If there is an error in a slot, this will guide the user to the dialog approach.
- */
-function handleTellAccountSummaryIntent(intent, session, response) {
-    var speechOutput = "Your checkings account has an available balance of $3557.46" +
-        "and a current balance of $3557.46. The interest accrued this month is $2.3016" +
-        "the interest accrued this year till date is $43.85. The interest earned last year " +
-        "was $42.97.";
-    response.tell(speechOutput);
-
-}
-
-/**
  * This handles the SMS account summary interaction, where the user utters a phrase like:
  * 'Alexa, ask Capital One to send my checking account summary'.
  * If there is an error in a slot, this will guide the user to the dialog approach.
  */
-function handleSmsAccountSummaryIntent(intent, session, response) {
+function handleTextAccountSummaryIntent(intent, session, response) {
 
     var AWS = require('aws-sdk');
     // configure AWS

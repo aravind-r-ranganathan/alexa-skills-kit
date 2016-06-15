@@ -1,30 +1,30 @@
-OneshotTrendIntent how much did I spend on dining this month
+DebitCardPurchaseIntent how does my spending look this month
+DebitCardPurchaseIntent what is my trend
 
-DialogTrendIntent what is my trend
+TransactionsIntent what are my most recent {Transaction} transactions
 
-OneshotTransactionsIntent what are my most recent {Transaction} transactions
+DepositsIntent what is the status of my deposits
+DepositsIntent what is the status of deposits on my {Account} account
 
-DialogTransactionsIntent {Account}
-DialogTransactionsIntent {Transaction}
-
-OneshotRDCIntent what is the status of my deposits
-
-OneshotOrderCheckbookIntent order a checkbook with starting check number {StaringCheckNumber}
-
-DialogOrderCheckbookIntent starting check number is {StaringCheckNumber}
+OrderCheckbookIntent order a checkbook with starting check number {StaringCheckNumber}
 
 TellAccountSummaryIntent what is my account summary
 TellAccountSummaryIntent to tell my account summary
 TellAccountSummaryIntent what is my {Account} account summary
 TellAccountSummaryIntent to tell my {Account} account summary
 
-SmsAccountSummaryIntent send my account summary
-SmsAccountSummaryIntent message my account summary
-SmsAccountSummaryIntent text my account summary
-SmsAccountSummaryIntent sms my account summary
-SmsAccountSummaryIntent send me my account summary
-SmsAccountSummaryIntent message me my account summary
-SmsAccountSummaryIntent sms me my account summary
-SmsAccountSummaryIntent text me my account summary
+TextAccountSummaryIntent send my account summary
+TextAccountSummaryIntent message my account summary
+TextAccountSummaryIntent text my account summary
+TextAccountSummaryIntent sms my account summary
+TextAccountSummaryIntent send me my account summary
+TextAccountSummaryIntent message me my account summary
+TextAccountSummaryIntent sms me my account summary
+TextAccountSummaryIntent text me my account summary
 
 SupportedFunctionsIntent what information can you give me
+
+BankATMLocationsIntent where is the nearest ATM
+BankATMLocationsIntent whare is the nearest bank
+
+ReferralStatusIntent what is the status of my referrals
