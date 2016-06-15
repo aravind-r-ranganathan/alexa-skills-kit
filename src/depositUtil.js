@@ -49,6 +49,9 @@ function getDepositSummary(speechOutput, response) {
                     isPendingAvailable = true;
                     speechOutput += "Your deposit "+transaction.statementDescription+" is pending. ";
                 }
+                else {
+                    speechOutput += "You don't have any recent posted deposit transactions. "
+                }
                 if(counter++ >= 9)
                     break;
             }
