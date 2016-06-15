@@ -2,7 +2,7 @@
 {
   "intents": [
     {
-      "intent": "OneshotTrendIntent",
+      "intent": "DebitCardPurchaseIntent",
       "slots":[
         {
           "name": "Account",
@@ -23,28 +23,7 @@
       ]
     },
     {
-      "intent": "DialogTrendIntent",
-      "slots": [
-        {
-          "name": "Account",
-          "type": "AccountType"
-        },
-        {
-          "name": "Vendor",
-          "type": "VendorType"
-        },
-        {
-          "name": "StartDate",
-          "type": "AMAZON.DATE"
-        },
-        {
-          "name": "EndDate",
-          "type": "AMAZON.DATE"
-        }
-      ]
-    },
-    {
-      "intent": "OneshotTransactionsIntent",
+      "intent": "TransactionsIntent",
       "slots":[
         {
           "name": "Account",
@@ -65,28 +44,7 @@
       ]
     },
     {
-      "intent": "DialogTransactionsIntent",
-      "slots":[
-        {
-          "name": "Account",
-          "type": "AccountType"
-        },
-        {
-          "name": "Transaction",
-          "type": "TransactionType"
-        },
-        {
-          "name": "StartDate",
-          "type": "AMAZON.DATE"
-        },
-        {
-          "name": "EndDate",
-          "type": "AMAZON.DATE"
-        }
-      ]
-    },
-    {
-      "intent": "OneshotRDCIntent",
+      "intent": "DepositsIntent",
       "slots":[
         {
           "name": "Account",
@@ -103,20 +61,7 @@
       ]
     },
     {
-      "intent": "OneshotOrderCheckbookIntent",
-      "slots":[
-        {
-          "name": "Account",
-          "type": "AccountType"
-        },
-        {
-          "name": "StaringCheckNumber",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "DialogOrderCheckbookIntent",
+      "intent": "OrderCheckbookIntent",
       "slots":[
         {
           "name": "Account",
@@ -137,12 +82,18 @@
         }]
     },
     {
-      "intent": "SmsAccountSummaryIntent",
+      "intent": "TextAccountSummaryIntent",
       "slots":[
         {
           "name": "Account",
           "type": "AccountType"
         }]
+    },
+    {
+      "intent": "BankATMLocationsIntent"
+    },
+    {
+      "intent": "ReferralStatusIntent"
     },
     {
       "intent": "SupportedFunctionsIntent"
