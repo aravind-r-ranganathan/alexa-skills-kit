@@ -1,2 +1,30 @@
-OneshotTrendIntent what is my trend
-OneshotTrendIntent send me my trend
+OneshotTrendIntent how much did I spend on dining this month
+
+DialogTrendIntent what is my trend
+
+OneshotTransactionsIntent what are my most recent {Transaction} transactions
+
+DialogTransactionsIntent {Account}
+DialogTransactionsIntent {Transaction}
+
+OneshotRDCIntent what is the status of my deposits
+
+OneshotOrderCheckbookIntent order a checkbook with starting check number {StaringCheckNumber}
+
+DialogOrderCheckbookIntent starting check number is {StaringCheckNumber}
+
+TellAccountSummaryIntent what is my account summary
+TellAccountSummaryIntent to tell my account summary
+TellAccountSummaryIntent what is my {Account} account summary
+TellAccountSummaryIntent to tell my {Account} account summary
+
+SmsAccountSummaryIntent send my account summary
+SmsAccountSummaryIntent message my account summary
+SmsAccountSummaryIntent text my account summary
+SmsAccountSummaryIntent sms my account summary
+SmsAccountSummaryIntent send me my account summary
+SmsAccountSummaryIntent message me my account summary
+SmsAccountSummaryIntent sms me my account summary
+SmsAccountSummaryIntent text me my account summary
+
+SupportedFunctionsIntent what information can you give me

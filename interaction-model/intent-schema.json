@@ -5,16 +5,12 @@
       "intent": "OneshotTrendIntent",
       "slots":[
         {
-          "name": "LastFour",
-          "type": "AMAZON.FOUR_DIGIT_NUMBER"
-        },
-        {
-          "name": "AcctType",
+          "name": "Account",
           "type": "AccountType"
         },
         {
-          "name": "ProductType",
-          "type": "ProductType"
+          "name": "Vendor",
+          "type": "VendorType"
         },
         {
           "name": "StartDate",
@@ -23,10 +19,6 @@
         {
           "name": "EndDate",
           "type": "AMAZON.DATE"
-        },
-        {
-          "name" : "TimePeriod",
-          "type": "LIST_OF_TIMEPERIODS"
         }
       ]
     },
@@ -34,16 +26,12 @@
       "intent": "DialogTrendIntent",
       "slots": [
         {
-          "name": "LastFour",
-          "type": "AMAZON.FOUR_DIGIT_NUMBER"
-        },
-        {
-          "name": "AcctType",
+          "name": "Account",
           "type": "AccountType"
         },
         {
-          "name": "ProductType",
-          "type": "ProductType"
+          "name": "Vendor",
+          "type": "VendorType"
         },
         {
           "name": "StartDate",
@@ -52,12 +40,112 @@
         {
           "name": "EndDate",
           "type": "AMAZON.DATE"
-        },
-        {
-          "name" : "TimePeriod",
-          "type": "LIST_OF_TIMEPERIODS"
         }
       ]
+    },
+    {
+      "intent": "OneshotTransactionsIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        },
+        {
+          "name": "Transaction",
+          "type": "TransactionType"
+        },
+        {
+          "name": "StartDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "EndDate",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "DialogTransactionsIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        },
+        {
+          "name": "Transaction",
+          "type": "TransactionType"
+        },
+        {
+          "name": "StartDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "EndDate",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "OneshotRDCIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        },
+        {
+          "name": "StartDate",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "EndDate",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "OneshotOrderCheckbookIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        },
+        {
+          "name": "StaringCheckNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "DialogOrderCheckbookIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        },
+        {
+          "name": "StaringCheckNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "TellAccountSummaryIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        }]
+    },
+    {
+      "intent": "SmsAccountSummaryIntent",
+      "slots":[
+        {
+          "name": "Account",
+          "type": "AccountType"
+        }]
+    },
+    {
+      "intent": "SupportedFunctionsIntent"
     },
     {
       "intent": "DontKnowIntent"

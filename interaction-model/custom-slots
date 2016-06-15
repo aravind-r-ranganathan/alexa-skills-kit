@@ -4,4 +4,20 @@ AccountType
 
 TransactionType
     withdrawals
-    debit card purchases
+    withdrawal
+    atm withdrawal
+    branch withdrawal
+    teller withdrawal
+    mobile check deposit
+    branch check deposit
+    teller check deposit
+    atm check deposit
+    atm deposit
+    check rejects
+    rejected checks
+    pending deposit
+    
+VendorType
+    dining
+    movies
+    groceries
