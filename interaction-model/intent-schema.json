@@ -4,10 +4,6 @@
       "intent": "DebitCardPurchaseIntent",
       "slots":[
         {
-          "name": "Account",
-          "type": "AccountType"
-        },
-        {
           "name": "Vendor",
           "type": "VendorType"
         },
@@ -89,7 +85,12 @@
         }]
     },
     {
-      "intent": "BankATMLocationsIntent"
+      "intent": "BankATMLocationsIntent",
+      "slots":[
+        {
+          "name": "Location",
+          "type": "LocationType"
+        }]
     },
     {
       "intent": "ReferralStatusIntent"

@@ -1,30 +1,35 @@
 DebitCardPurchaseIntent how does my spending look this month
 DebitCardPurchaseIntent what is my trend
-
-TransactionsIntent what are my most recent {Transaction} transactions
+DebitCardPurchaseIntent how much did I spend on {Vendor} this month
+DebitCardPurchaseIntent how much did I spend on {Vendor} {StartDate}
 
 DepositsIntent what is the status of my deposits
 DepositsIntent what is the status of deposits on my {Account} account
 
 OrderCheckbookIntent order a checkbook with starting check number {StaringCheckNumber}
+OrderCheckbookIntent order a checkbook
+OrderCheckbookIntent {StaringCheckNumber}
 
+TellAccountSummaryIntent what my account summary is
 TellAccountSummaryIntent what is my account summary
 TellAccountSummaryIntent to tell my account summary
 TellAccountSummaryIntent what is my {Account} account summary
 TellAccountSummaryIntent to tell my {Account} account summary
+TellAccountSummaryIntent to get my account summary
+
 
 TextAccountSummaryIntent send my account summary
 TextAccountSummaryIntent message my account summary
-TextAccountSummaryIntent text my account summary
 TextAccountSummaryIntent sms my account summary
 TextAccountSummaryIntent send me my account summary
 TextAccountSummaryIntent message me my account summary
 TextAccountSummaryIntent sms me my account summary
-TextAccountSummaryIntent text me my account summary
 
 SupportedFunctionsIntent what information can you give me
 
-BankATMLocationsIntent where is the nearest ATM
-BankATMLocationsIntent whare is the nearest bank
+BankATMLocationsIntent where is the nearest {Location}
+BankATMLocationsIntent my nearest {Location}
+BankATMLocationsIntent how far is {Location} from my place
+
 
 ReferralStatusIntent what is the status of my referrals

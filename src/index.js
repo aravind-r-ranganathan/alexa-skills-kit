@@ -4,16 +4,19 @@
 var APP_ID = 'amzn1.echo-sdk-ams.app.2be9da98-88ef-4f20-9699-1ab43665e5be';
 
 
-var http = require('http'),
-    alexaDateUtil = require('./alexaDateUtil');
-var depositUtil = require('./depositUtil');
-var accountSummaryUtil = require('./accountSummaryUtil');
+var http = require('http');
+var depositUtil = require('./features/depositUtil');
+var accountSummaryUtil = require('./features/accountSummaryUtil');
+var debitCardPurchaseUtil = require('./features/debitCardPurchaseUtil');
+var orderCheckbookUtil = require('./features/orderCheckbookUtil');
+var referralStatusUtil = require('./features/referralStatusUtil');
+var atmBankLocator = require('./features/atmBankLocator');
 
 
 /**
  * The AlexaSkill prototype and helper functions
  */
-var AlexaSkill = require('./AlexaSkill');
+var AlexaSkill = require('./lib/AlexaSkill');
 
 /**
  * TrendReporter is a child of AlexaSkill.
@@ -53,7 +56,7 @@ TrendReporter.prototype.eventHandlers.onSessionEnded = function (sessionEndedReq
  */
 TrendReporter.prototype.intentHandlers = {
     "DebitCardPurchaseIntent": function (intent, session, response) {
-        handleDebitCardPurchaseIntent(intent, session, response);
+        debitCardPurchaseUtil.handleDebitCardPurchaseIntent(intent, session, response);
     },
 
     "TransactionsIntent": function (intent, session, response) {
@@ -64,16 +67,20 @@ TrendReporter.prototype.intentHandlers = {
     },
 
     "OrderCheckbookIntent": function (intent, session, response) {
+        orderCheckbookUtil.handleOrderCheckbookIntent(intent, session, response);
     },
 
     "BankATMLocationsIntent": function (intent, session, response) {
+        console.log("method called");
+        atmBankLocator.handleBankATMLocationsIntent(intent, session, response);
     },
 
     "ReferralStatusIntent": function (intent, session, response) {
+        referralStatusUtil.handleReferralStatusIntent(intent, session, response);
     },
 
     "TextAccountSummaryIntent": function (intent, session, response) {
-        handleTextAccountSummaryIntent(intent, session, response);
+        accountSummaryUtil.textAccountSummary(intent, session, response);
     },
 
     "TellAccountSummaryIntent": function (intent, session, response) {
@@ -104,7 +111,7 @@ function handleWelcomeRequest(response) {
     //TODO add welcome prompt
     var welcomePrompt = "How can I help you with your bank account?",
         speechOutput = {
-            speech: "<speak>Welcome to Capital One. Your voice enabled banking assistance is ready."
+            speech: "<speak>Heeeeeeyyyyyyyy look who it is....Welcome back to Capital One"
             + "</speak>",
             type: AlexaSkill.speechOutputType.SSML
         },
@@ -112,7 +119,6 @@ function handleWelcomeRequest(response) {
             //TODO add welcome reprompt
             speech: "I can give you information about your debit card purchases" +
             " or summary of your bank accounts,"
-            + "list down your various transactions - withdrawals, deposits etc., "
             + "or you can simply open Capital One and ask a question like, "
             + "what is the status of my deposits. "
             + "For a list of supported functions, ask what functions are supported. "
@@ -138,54 +144,13 @@ function handleHelpRequest(response) {
 }
 
 /**
- * This handles the one-shot interaction, where the user utters a phrase like:
- * 'Alexa, open Capital One and ask the trend of my account'.
- * If there is an error in a slot, this will guide the user to the dialog approach.
- */
-function handleDebitCardPurchaseIntent(intent, session, response) {
-    var speechOutput = "You spent a total of $473.45 this month, highest on " +
-        "dining where you spent $131.67. Last month you spent $125.21 on dining.";
-    response.tell(speechOutput);
-
-
-}
-
-
-/**
  * This handles the SMS account summary interaction, where the user utters a phrase like:
  * 'Alexa, ask Capital One to send my checking account summary'.
  * If there is an error in a slot, this will guide the user to the dialog approach.
  */
 function handleTextAccountSummaryIntent(intent, session, response) {
 
-    var AWS = require('aws-sdk');
-    // configure AWS
-    AWS.config.update({
-        'region': 'us-east-1'
-    });
-
-    var eventText = "Hello world eight";
-    console.log("Received event:", eventText);
-    var sns = new AWS.SNS();
-    var currentDate = new Date();
-
-    var params = {
-        Message:"Alexa",
-        Subject: "Capital One Checking Account - 36000136597. Available balance is " +
-        "$3557.6 as of " + currentDate.getMonth()+1+"/"+currentDate.getDate()+
-        "/"+currentDate.getFullYear(),
-        TopicArn: "arn:aws:sns:us-east-1:673760866951:AlexaTopic"
-    };
-    sns.publish(params, function (err, data) {
-        if (err) {
-            console.log('error publishing to SNS');
-            console.log(err);
-        } else {
-            console.log('message published to SNS');
-            response.tell("SMS has been sent.")
-        }
-        console.log(data);
-    });
+    
 }
 
 

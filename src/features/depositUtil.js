@@ -1,14 +1,14 @@
 exports.handleDepositsIntent = function(intent, session, response){
     handleDepositsIntent(intent, session, response);
 };
-var apiUtil = require('./apiUtil.js');
+var apiUtil = require('./../util/apiUtil.js');
 
 
 var transactionsApiEndpoint = "https://ofo7sj25ll.execute-api.us-east-1.amazonaws.com/beta/transactions";
 
 //Handles the DepositsIntent
 function handleDepositsIntent(intent, session, response) {
-    var speechOutput = "";
+    var speechOutput;
     var accountTypeSlot = intent.slots.Account;
     if (!accountTypeSlot || !accountTypeSlot.value) {
         accountTypeSlot.value = "checking";
@@ -52,7 +52,7 @@ function getDepositSummary(speechOutput, response) {
                 else {
                     speechOutput += "You don't have any recent posted deposit transactions. "
                 }
-                if(counter++ >= 9)
+                if(counter++ >= 2)
                     break;
             }
         }

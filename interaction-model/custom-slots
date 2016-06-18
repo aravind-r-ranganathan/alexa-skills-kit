@@ -21,3 +21,10 @@ VendorType
     dining
     movies
     groceries
+
+LocationType
+    atm
+    ATM
+    branch
+    bank
+    cafe
